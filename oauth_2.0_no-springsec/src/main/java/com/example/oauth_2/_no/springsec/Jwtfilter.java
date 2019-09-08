@@ -26,7 +26,7 @@ public class Jwtfilter implements Filter {
                 String token = header.substring(7);
                 //wprowadzamy hasło do odkodowania tokena i wyciągamy dane z tokena jeżeli poniższe uda się wykonać
                 //uda się wykonać jak hasło się zgadza / jak hasło nieprawidłowe to rzuci komunikat ze nieprawidlowe
-                //todo z jakiego powodu trochę hasło moze się róznić - nie do przyjęcia error
+                //todo z jakiego powodu trochę hasło moze się róznić nie do przyjęcia error
                 Claims claims = Jwts.parser().setSigningKey("passw").parseClaimsJws(token).getBody();
                 servletRequest.setAttribute("claims",claims);
             }
